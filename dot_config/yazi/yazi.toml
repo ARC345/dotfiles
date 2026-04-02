@@ -1,0 +1,59 @@
+[manager]
+ratio = [1, 3, 4]
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+linemode = "size"
+show_hidden = false
+show_symlink = true
+
+[preview]
+tab_size = 2
+max_width = 1200
+max_height = 900
+cache_dir = ""
+ueberzug_scale = 1
+ueberzug_offset = [0, 0, 0, 0]
+
+[opener]
+edit = [
+  { run = '${EDITOR:-nvim} "$@"', block = true },
+]
+open = [
+  { run = 'xdg-open "$@"' },
+]
+reveal = [
+  { run = 'xdg-open "$(dirname "$1")"' },
+]
+extract = [
+  { run = 'unar "$1"', desc = "Extract here" },
+]
+drag = [
+  { run = 'ripdrag "$@"', desc = "Drag and drop" },
+]
+
+[open]
+rules = [
+  { name = "*/", use = ["edit", "open", "reveal"] },
+  { mime = "text/*", use = ["edit", "open"] },
+  { mime = "image/*", use = ["open"] },
+  { mime = "video/*", use = ["open"] },
+  { mime = "audio/*", use = ["open"] },
+  { mime = "application/json", use = ["edit", "open"] },
+  { mime = "application/zip", use = ["extract", "open"] },
+  { mime = "application/gzip", use = ["extract", "open"] },
+  { mime = "application/x-tar", use = ["extract", "open"] },
+  { mime = "*", use = ["open", "edit", "reveal"] },
+]
+
+[tasks]
+micro_workers = 10
+macro_workers = 25
+bizarre_retry = 5
+image_alloc = 536870912
+image_bound = [0, 0]
+suppress_preload = false
+
+[log]
+enabled = false
