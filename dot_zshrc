@@ -47,7 +47,6 @@ bindkey '^[w' kill-region
 alias ls='ls --color'
 alias ll='ls -lah --color'
 alias la='ls -A --color'
-alias y='yazi'
 alias g='git'
 alias gs='git status'
 alias ga='git add'
