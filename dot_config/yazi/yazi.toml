@@ -112,42 +112,35 @@ run  = "ouch"
 # Markdown
 [[plugin.prepend_previewers]]
 name = "*.md"
-run  = "piper"
-args = ["CLICOLOR_FORCE=1 glow -w=$w -s=dark \"$1\""]
+run  = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'
 
 # Office docs
 [[plugin.prepend_previewers]]
 name = "*.docx"
-run  = "piper"
-args = ["pandoc -t plain \"$1\" | bat --language=text --color=always --paging=never"]
+run  = 'piper -- pandoc -t plain "$1" | bat --language=text --color=always --paging=never'
 
 [[plugin.prepend_previewers]]
 name = "*.odt"
-run  = "piper"
-args = ["pandoc -t plain \"$1\" | bat --language=text --color=always --paging=never"]
+run  = 'piper -- pandoc -t plain "$1" | bat --language=text --color=always --paging=never'
 
 [[plugin.prepend_previewers]]
 name = "*.rtf"
-run  = "piper"
-args = ["pandoc -t plain \"$1\" | bat --language=text --color=always --paging=never"]
+run  = 'piper -- pandoc -t plain "$1" | bat --language=text --color=always --paging=never'
 
 # PDF
 [[plugin.prepend_previewers]]
 mime = "application/pdf"
-run  = "piper"
-args = ["pdftoppm -r 150 -singlefile \"$1\" /tmp/yazi_pdf && chafa --format=kitty --size=${w}x${h} /tmp/yazi_pdf.ppm"]
+run  = 'piper -- pdftoppm -r 150 -singlefile "$1" /tmp/yazi_pdf && chafa --format=kitty --size=${w}x${h} /tmp/yazi_pdf.ppm'
 
 # Code / text
 [[plugin.prepend_previewers]]
 mime = "text/*"
-run  = "piper"
-args = ["bat --color=always --paging=never --wrap=never \"$1\""]
+run  = 'piper -- bat --color=always --paging=never --wrap=never "$1"'
 
 # Binary fallback
 [[plugin.prepend_previewers]]
 mime = "application/octet-stream"
-run  = "piper"
-args = ["hexyl --border=none \"$1\""]
+run  = 'piper -- hexyl --border=none "$1"'
 
 [[plugin.prepend_fetchers]]
 id  = "git"
