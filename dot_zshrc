@@ -64,6 +64,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # ── Tools ────────────────────────────────────────────────────────────────────
+# Atuin (shell history)
+eval "$(atuin init zsh)"
+
 # Starship prompt
 eval "$(starship init zsh)"
 
