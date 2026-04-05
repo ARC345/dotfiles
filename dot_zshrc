@@ -10,6 +10,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # ── Plugins ──────────────────────────────────────────────────────────────────
 zinit light zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
@@ -42,6 +43,10 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
 
 # ── Aliases ──────────────────────────────────────────────────────────────────
 alias ls='ls --color'
@@ -53,6 +58,8 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias gl='git log --oneline --graph --decorate'
+alias pgstart='sudo systemctl start postgresql'
+alias pgstop='sudo systemctl stop postgresql'
 alias ..='cd ..'
 alias ...='cd ../..'
 
@@ -68,7 +75,7 @@ eval "$(zoxide init --cmd z zsh)"
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 # Yazi shell integration (cd on exit)
-function y() {
+function f() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
   if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
