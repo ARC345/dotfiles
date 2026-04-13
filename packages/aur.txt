@@ -1,0 +1,11 @@
+antigravity
+caffeine
+cursor-bin
+google-chrome
+google-cloud-cli
+hyprshade
+moltbot
+pgadmin4-desktop-native
+python-pywalfox
+ripdrag
+zoom
