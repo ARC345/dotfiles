@@ -1,6 +1,5 @@
 7zip
 accountsservice
-alacritty
 alsa-firmware
 alsa-plugins
 alsa-utils
