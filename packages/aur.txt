@@ -9,3 +9,4 @@ pgadmin4-desktop-native
 python-pywalfox
 ripdrag
 zoom
+catppuccin-gtk-theme-macchiato
